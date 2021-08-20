@@ -6,10 +6,17 @@ import App from './App'
 import './api/server'
 
 import store from './store'
+import { fetchTodos } from './features/todos/todosSlice'
+
+import { Provider } from 'react-redux'
+
+store.dispatch(fetchTodos)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )
